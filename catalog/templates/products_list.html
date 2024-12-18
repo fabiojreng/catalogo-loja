@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+<div class="row">
+    {% for product in products %}
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <a href="{% url 'product_details' product.id %}">
+                <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+            </a>
+            <div class="card-body">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <p class="card-text">{{ product.description|truncatewords:20 }}</p>
+                <p class="card-text"> R${{ product.value|truncatewords:20 }}</p>
+                <a href="{% url 'product_details' product.id %}" class="btn btn-primary">View Details</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% if not products %}
+    <p>No products found.</p>
+    {% endif %}
+</div>
+{% include 'components/_pagination.html' %}
+{% endblock %}
