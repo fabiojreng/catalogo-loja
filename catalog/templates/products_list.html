@@ -3,6 +3,13 @@
 {% block content %}
 
 
+<h2>
+    {% if current_category %}
+        {{ current_category.name }}
+    {% else %}
+        Exibindo todos os produtos
+    {% endif %}
+</h2>
 
 <div class="row">
     {% for product in products %}
