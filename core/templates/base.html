@@ -5,11 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fashion Store</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%; 
+            margin: 0; 
+            display: flex;
+            flex-direction: column; 
+        }
+        main {flex: 1;}
+        footer {
+            background-color: #212529; 
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="{% url 'product_list' %}">Fashion Store</a>
+            <a class="navbar-brand" href="{% url 'product_list' %}">
+                <img src="/media/logo.jpeg" alt="logo_lufashion" style="width: 100px; height: 60px;">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -17,7 +34,7 @@
             <div class="collapse navbar-collapse" id="navbarContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link {% if not request.GET.category %}active{% endif %}" href="{% url 'product_list' %}">All</a>
+                        <a class="nav-link {% if not request.GET.category %}active{% endif %}" href="{% url 'product_list' %}">Todos os Produtos</a>
                     </li>
                     
                     {% for category in categories %}
@@ -34,7 +51,7 @@
                     {% if request.GET.category %}
                     <input type="hidden" name="category" value="{{ request.GET.category }}">
                     {% endif %}
-                    <button class="btn btn-outline-light" type="submit">Search</button>
+                    <button class="btn btn-outline-light" type="submit">Buscar</button>
                 </form>
             </div>
         </div>
@@ -47,7 +64,7 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    {% include 'components/_footer.html' %}
 </body>
-{% include 'components/_footer.html' %}
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </html>
