@@ -1,0 +1,15 @@
+<div class="row">
+    {% for p in other_products %}
+    <div class="col-md-3 mb-4">
+        <div class="card product-card border-0 shadow-sm h-100">
+            <a href="{% url 'product_details' p.id %}" class="text-decoration-none">
+                <img src="{{ p.image.url }}" class="card-img-top rounded" alt="{{ p.name }}" style="max-height: 200px; object-fit: cover;">
+                <div class="card-body p-3 d-flex flex-column">
+                    <h5 class="text-truncate">{{ p.name }}</h5>
+                    <h6 class="text-primary fw-bold">R${{ p.value }}</h6>
+                </div>
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
