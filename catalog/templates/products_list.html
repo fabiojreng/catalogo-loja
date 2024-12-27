@@ -9,7 +9,7 @@
     {% if current_category %}
         {{ current_category.name }}
     {% else %}
-        Exibindo todos os produtos
+        TODOS OS PRODUTOS
     {% endif %}
 </h2>
 
@@ -28,9 +28,17 @@
         </div>
     </div>
     {% endfor %}
+    
     {% if not products %}
-        <p>No products found.</p>
+    <div class="col-12 text-center my-5">
+        <div class="alert alert-warning" role="alert">
+            <h4 class="alert-heading">Ops!</h4>
+            <p>Não encontramos produtos para exibir nesta categoria.</p>
+            <p class="mb-0">Tente novamente mais tarde ou explore outras categorias.</p>
+        </div>
+    </div>
     {% endif %}
 </div>
+
 {% include 'components/_pagination.html' %}
 {% endblock %}
