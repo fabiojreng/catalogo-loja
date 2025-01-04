@@ -12,7 +12,7 @@ import os
 from django.core.wsgi import get_wsgi_application
 
 
-tmp_media_path = "/media"
+tmp_media_path = "/tmp/media"
 if not os.path.exists(tmp_media_path):
     os.makedirs(tmp_media_path)
 

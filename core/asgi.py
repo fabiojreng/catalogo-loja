@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.1/howto/deployment/asgi/
 
 import os
 
-tmp_media_path = "/media"
+tmp_media_path = "/tmp/media"
 if not os.path.exists(tmp_media_path):
     os.makedirs(tmp_media_path)
 
