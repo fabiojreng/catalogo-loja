@@ -35,7 +35,7 @@
         <div class="col-md-7 d-flex flex-column justify-content-center">
             <h1 class="card-title">{{ product.name }}</h1>
             <p>{{ product.description }}</p>
-            <h4 class="card-price">R${{ product.value }}</h4>
+            <h4 class="card-price">R${{ product.value|floatformat:2 }}</h4>
         </div>
     </div>
 
