@@ -10,4 +10,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 8000
 
-CMD ["sh", "-c", "python manage.py migrate --noinput && gunicorn catalogo.wsgi:application"]
+CMD ["sh", "-c", "python manage.py migrate --noinput && gunicorn catalog.wsgi:application"]
