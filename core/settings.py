@@ -132,4 +132,4 @@ STATIC_ROOT = os.path.join("staticfiles")
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Configuração do diretório de mídia
 MEDIA_URL = "/media/"
-MEDIA_ROOT = "/tmp/media"  # Diretório temporário na Vercel
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
