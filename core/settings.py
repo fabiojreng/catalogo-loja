@@ -28,7 +28,14 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "catalog",
+    "administrators",
 ]
+
+LOGIN_URL = "login"
+
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/login/"
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -70,21 +77,21 @@ WSGI_APPLICATION = "core.wsgi.application"
 load_dotenv()
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.getenv("DATABASE_NAME"),
-        "USER": os.getenv("DATABASE_USER"),
-        "PASSWORD": os.getenv("DATABASE_PASSWORD"),
-        "HOST": os.getenv("DATABASE_HOST"),
-        "PORT": os.getenv("DATABASE_PORT"),
-        "OPTIONS": {
-            "sslmode": "require",  # Conexões com Render geralmente requerem SSL
-        },
-    }
     # "default": {
-    #     "ENGINE": "django.db.backends.sqlite3",
-    #     "NAME": BASE_DIR / "db.sqlite3",
+    #     "ENGINE": "django.db.backends.postgresql",
+    #     "NAME": os.getenv("DATABASE_NAME"),
+    #     "USER": os.getenv("DATABASE_USER"),
+    #     "PASSWORD": os.getenv("DATABASE_PASSWORD"),
+    #     "HOST": os.getenv("DATABASE_HOST"),
+    #     "PORT": os.getenv("DATABASE_PORT"),
+    #     "OPTIONS": {
+    #         "sslmode": "require",  # Conexões com Render geralmente requerem SSL
+    #     },
     # }
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+    }
 }
 
 

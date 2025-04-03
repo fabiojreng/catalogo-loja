@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>{% if form.instance.pk %}Editar{% else %}Criar{% endif %} Produto</h2>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="id_name" class="form-label">Nome</label>
+            {{ form.name }}
+        </div>
+        <div class="mb-3">
+            <label for="id_description" class="form-label">Descrição</label>
+            {{ form.description }}
+        </div>
+        <div class="mb-3">
+            <label for="id_value" class="form-label">Valor</label>
+            {{ form.value }}
+        </div>
+        <div class="mb-3">
+            <label for="id_category" class="form-label">Categoria</label>
+            {{ form.category }}
+        </div>
+        <div class="mb-3">
+            <label for="id_image" class="form-label">Imagem Principal</label>
+            {{ form.image }}
+        </div>
+        <button type="submit" class="btn btn-success">Salvar</button>
+        <a href="{% url 'product_list' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+{% endblock %}

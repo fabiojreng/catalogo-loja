@@ -50,6 +50,8 @@ class ProductDetailView(DetailView):
 
         product = self.get_object()
 
-        context["other_products"] = Product.objects.exclude(id=product.id)[:4]
+        context["other_products"] = Product.objects.exclude(id=product.id).order_by(
+            "?"
+        )[:4]
 
         return context
