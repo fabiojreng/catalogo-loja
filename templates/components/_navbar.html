@@ -15,7 +15,6 @@
         </button>
         
         <div class="collapse navbar-collapse justify-content-between" id="navbarContent">
-            {% if user.is_authenticated %}
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link {% if not request.GET.category %}active{% endif %}" href="{% url 'product_list' %}">Todos os Produtos</a>
@@ -60,18 +59,16 @@
                         </button>
                     </div>
                 </form>
-            {% endif %}
 
-            <div class="d-flex align-items-center">
-                {% if user.is_authenticated %}
-                    <!-- Botão de logout -->
-                    <form action="{% url 'logout' %}" method="post" class="d-inline">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-dark">
-                            <i class="bi bi-box-arrow-right text-white fs-4"></i>
-                        </button>
-                    </form>
-                {% endif %}
+                <div class="d-flex align-items-center">
+                    {% if user.is_authenticated %}
+                        <form action="{% url 'logout' %}" method="post" class="d-inline">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-dark">
+                                <i class="bi bi-box-arrow-right text-white fs-4"></i>
+                            </button>
+                        </form>
+                    {% endif %}
             </div>
         </div>
     </div>
